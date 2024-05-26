@@ -1,0 +1,148 @@
+body {
+    background: linear-gradient(to right, #ffafbd, #ffc3a0);
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.letter {
+    max-width: 80%; /* Adjust width for different devices */
+    margin: 0 auto; /* Center the letter horizontally */
+    padding: 20px;
+    background: rgb(231, 186, 133);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.message {
+    width: 100%; /* Ensure text doesn't exceed the card width */
+    max-width: 100%; /* Limit maximum width to 100% */
+    word-wrap: break-word; /* Enable text wrapping */
+}
+.card-container {
+    perspective: 1000px;
+    width: 90%;
+    max-width: 600px;
+    height: 400px;
+    margin: 20px auto; /* Center the card container */
+}
+
+.card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 1s;
+    border-radius: 15px;
+}
+
+.front, .back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    transition: background-color 1s;
+}
+
+.front {
+    background: rgb(142, 241, 184);
+    z-index: 2;
+}
+
+.front h1 {
+    font-size: 3em;
+    color: #e99fc4;
+    text-align: center;
+}
+
+.front .heart {
+    font-size: 8em;
+    color: red;
+    cursor: pointer;
+    margin: 20px 0;
+}
+
+.front button {
+    margin-top: 20px;
+}
+
+.back {
+    background: white;
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.left-side, .right-side {
+    width: 50%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.left-side {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.anniversary-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.right-side {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.right-side p {
+    margin: 10px 0;
+    color: #333;
+}
+
+#card.flipped {
+    transform: rotateY(180deg);
+}
+
+#card.flipped .back {
+    background-color: #ffc3a0;
+}
+
+
+
+@media screen and (max-width: 900px) {
+    .card-container {
+        width: 80%;
+    }
+
+    .front h1 {
+        font-size: 2em;
+    }
+
+    .front .heart {
+        font-size: 6em;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .card-container {
+        width: 90%;
+    }
+
+    .front h1 {
+        font-size: 1.5em;
+    }
+
+    .front .heart {
+        font-size: 4em;
+    }
+}
